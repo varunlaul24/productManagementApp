@@ -1,0 +1,22 @@
+<h2>Login</h2>
+<div>
+  <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="userDetails.email" required />
+        <small *ngIf="loginForm.controls['email']?.touched && loginForm.controls['email'].invalid" class="text-danger">
+        Enter a valid email address
+        </small>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="userDetails.password" required>
+    </div>
+    <button>Login</button>
+  </form>
+<p *ngIf="loginFailed" style="color: red;">Invalid email or password</p>
+</div>
+
+<p>
+  Don't have an account ? <a routerLink="/auth/signup">Signup here</a>
+</p>

@@ -1,0 +1,12 @@
+<div *ngIf="product" class="product-details">
+  <h1>{{ product.title }}</h1>
+  <p class="description">{{ product.description }}</p>
+  <p class="price">Price: ${{ product.price }}</p>
+  <p class="category">Category: {{ product.category.name }}</p>
+  
+  <img *ngIf="product.images.length > 0" [src]="product.images[0]" alt="{{ product.title }}" class="product-image">
+  
+  <p class="content">{{ product.content }}</p>
+  
+  <button (click)="goBack()">Back to List</button>
+</div>

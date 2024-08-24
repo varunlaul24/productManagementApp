@@ -1,0 +1,10 @@
+<nav class="header">
+  <div class="nav-links">
+    <a routerLink="/products/list" routerLinkActive="active">Products</a>
+    <a *ngIf="userRole === 'admin'" routerLink="/admin/list" routerLinkActive="active">Users</a>
+  </div>
+  <div class="user-info">
+    <span>{{ username }}</span>
+    <button class="logout-button" (click)="onLogout()">Logout</button>
+  </div>
+</nav>

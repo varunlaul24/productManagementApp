@@ -1,0 +1,65 @@
+.user-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+
+.user-card:hover{
+  box-shadow: 0 2px 4px #007bff;
+}
+
+.user-container{
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 75px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.user-info h3 {
+  margin: 0 0 10px;
+}
+
+.user-info p {
+  margin: 5px 0;
+}
+
+button {
+  margin-right: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.addButton{
+  margin-left: 15px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:last-child {
+  background-color: #dc3545;
+}
+
+button:last-child:hover {
+  background-color: #c82333;
+}
+
+h2{
+  padding: 10px;
+}

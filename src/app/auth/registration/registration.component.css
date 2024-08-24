@@ -1,0 +1,50 @@
+form {
+  max-width: 50%;
+  margin: auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+div {
+  margin-bottom: 10px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  display: block;
+}
+
+input {
+  border: 1px solid #cccccc;
+  padding: 0.5em;
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+p {
+  color: green;
+  margin-top: 10px;
+  text-align: center;
+}
+
+h2 {
+  padding: 10px;
+}

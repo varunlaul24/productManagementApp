@@ -1,0 +1,24 @@
+<app-header></app-header>
+<h2>Users List</h2>
+<button class="addButton" routerLink="/admin/form">Add New User</button>
+<div *ngFor="let user of users" class="user-card">
+  <div class="user-container">
+    <div>
+      <img
+        [src]="user.avatar"
+        alt="{{ user.name }}'s avatar"
+        class="user-avatar"
+      />
+    </div>
+    <div class="user-info">
+      <h3>{{ user.name }}</h3>
+      <p>Email: {{ user.email }}</p>
+      <p>ID: {{ user.id }}</p>
+      <p>Role: {{ user.role }}</p>
+    </div>
+  </div>
+  <div class="user-actions">
+    <button [routerLink]="['/admin', user.id, 'edit']">Edit</button>
+    <button (click)="deleteUser(user.id)">Delete</button>
+  </div>
+</div>

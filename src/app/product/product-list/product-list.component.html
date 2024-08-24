@@ -1,0 +1,27 @@
+<app-header></app-header>
+<h2>Products List</h2>
+<a [routerLink]="['/products/create']" class="create-button"
+  >Create New Product</a
+>
+<div class="product-list">
+  <div class="product-item" *ngFor="let product of products">
+    <h3>{{ product.title }}</h3>
+    <p>{{ product.description }}</p>
+    <p><strong>Price:</strong> ${{ product.price }}</p>
+    <p><strong>Category:</strong> {{ product.category.name }}</p>
+    <img
+      *ngIf="product.images.length > 0"
+      [src]="sanitizeImageUrl(product.images[0])"
+      alt="{{ product.title }}"
+      class="product-image"
+    />
+    <div *ngIf="products.length === 0">
+      <p>No products available.</p>
+    </div>
+    <div class="actions">
+      <button [routerLink]="['/products', product.id]">Details</button>
+      <button [routerLink]="['/products', product.id, 'edit']">Edit</button>
+      <button (click)="deleteProduct(product.id)">Delete</button>
+    </div>
+  </div>
+</div>

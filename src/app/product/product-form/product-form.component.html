@@ -1,0 +1,27 @@
+<app-header></app-header>
+<div class="form-container">
+  <form [formGroup]="addEditProduct" (ngSubmit)="onSubmit()">
+    Title
+    <input type="text" formControlName="title" required />
+    <br />
+    Price
+    <input type="number" formControlName="price" required /><br />
+    Description
+    <textarea name="message" formControlName="description" required> </textarea>
+    <br />
+    Categories
+    <select name="" id="" formControlName="categoryId">
+      <option [value]="category.id" *ngFor="let category of categoryList">
+        {{ category.name }}
+      </option></select
+    ><br />
+    Images
+    <!-- <div formArrayName="images" *ngFor="let image of imageControls; let i=index ">
+    <input type="text" [formControlName]="i"/>
+    
+  </div> -->
+    <input type="text" formControlName="images" required />
+    <br />
+    <button type="submit">{{ isEditMode ? 'Update Product' : 'Create Product' }}</button>
+  </form>
+</div>

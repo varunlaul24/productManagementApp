@@ -1,0 +1,64 @@
+<h2>Sign up</h2>
+<form [formGroup]="registerForm" (ngSubmit)="signup()">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" formControlName="username" required />
+    <small
+      *ngIf="
+        registerForm.controls['username'].invalid &&
+        (registerForm.controls['username'].dirty ||
+          registerForm.controls['username'].touched)
+      "
+    >
+      Username is required.
+    </small>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" required />
+    <small
+      *ngIf="
+        registerForm.controls['email'].invalid &&
+        (registerForm.controls['email'].dirty ||
+          registerForm.controls['email'].touched)
+      "
+    >
+      Please enter a valid email.
+    </small>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" required />
+    <small
+      *ngIf="
+        registerForm.controls['password'].invalid &&
+        registerForm.controls['password'].dirty &&
+          registerForm.controls['password'].touched
+      "
+    >
+      Password must be 8-16 characters long, contain at least one uppercase
+      letter, one lowercase letter, and one number.
+    </small>
+  </div>
+  <div>
+    <label for="confirmPassword">Confirm Password:</label>
+    <input
+      type="password"
+      id="confirmPassword"
+      formControlName="confirmPassword"
+      required
+    />
+    <small *ngIf="registerForm.errors?.['mismatch']"
+      >Passwords must match.</small
+    >
+  </div>
+  <div>
+    <label for="avatar">Avatar URL:</label>
+    <input type="text" id="avatar" formControlName="avatar" />
+  </div>
+  <button type="submit" [disabled]="registerForm.invalid">Sign Up</button>
+</form>
+<p *ngIf="signupSuccess" style="color: green">
+  Signup successful. Please login.
+</p>
+<p>Already have an account? <a routerLink="/auth/login">Login here</a>.</p>

@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<div class="form-container">
+  <form [formGroup]="UserForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input type="text" placeholder="Name" formControlName="name" />
+      <div
+        style="color: red"
+        *ngIf="
+          UserForm.controls['name'].invalid && UserForm.controls['name'].touched
+        "
+      >
+        <p *ngIf="UserForm.controls['name'].errors?.['required']">
+          Name is required.
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <input type="email" placeholder="Email" formControlName="email" />
+      <div
+        style="color: red"
+        *ngIf="
+          UserForm.controls['email'].invalid &&
+          UserForm.controls['email'].touched
+        "
+      >
+        <p *ngIf="UserForm.controls['email'].errors?.['required']">
+          Email is required.
+        </p>
+        <p *ngIf="UserForm.controls['email'].errors?.['email']">
+          Please enter a valid email.
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <div
+        style="color: red"
+        *ngIf="
+          UserForm.controls['password']?.invalid &&
+          UserForm.controls['password']?.touched
+        "
+      >
+        <p *ngIf="UserForm.controls['password'].errors?.['required']">
+          Password is required.
+        </p>
+        <p *ngIf="UserForm.controls['password'].errors?.['minlength']">
+          Password must be at least 4 characters long.
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <input type="text" placeholder="Avatar URL" formControlName="avatar" />
+      <div
+        style="color: red"
+        *ngIf="
+          UserForm.controls['avatar']?.invalid &&
+          UserForm.controls['avatar']?.touched
+        "
+      >
+        <p *ngIf="UserForm.controls['avatar'].errors?.['required']">
+          Avatar URL is required.
+        </p>
+      </div>
+    </div>
+
+    <button type="submit">
+      {{ isEditMode ? "Update User" : "Create User" }}
+    </button>
+  </form>
+</div>
