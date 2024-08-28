@@ -14,23 +14,7 @@ export class AuthService {
   private userRole: 'admin' | 'customer' | null = null;
   private username: string | null = null;
 
-  // private readonly tokenKey = 'auth_token';
-  // private readonly refreshTokenKey = 'refresh_token';
-
   constructor(private http: HttpClient, private router: Router) {}
-
-  // getToken(): string | null {
-  //   return localStorage.getItem(this.tokenKey);
-  // }
-
-  // getRefreshToken(): string | null {
-  //   return localStorage.getItem(this.refreshTokenKey);
-  // }
-
-  // setToken(token: string, refreshToken: string) {
-  //   localStorage.setItem(this.refreshTokenKey, refreshToken);
-  //   localStorage.setItem(this.refreshTokenKey, refreshToken);
-  // }
 
   login(email: string, password: string): Observable<any> {
     return this.http.post<any>(this.apiUrl, { email, password }).pipe(
@@ -49,20 +33,8 @@ export class AuthService {
     );
   }
 
-  // refreshToken(): Observable<any> {
-  //   const refreshToken = this.getRefreshToken();
-
-  //   // API endpoint to refresh token
-  //   return this.http.post<any>('api-endpoint', { refreshToken }).pipe(
-  //     tap((response) => {
-  //       this.setToken(response.token, response.refreshToken);
-  //     })
-  //   );
-  // }
-
   logout(): void {
     localStorage.removeItem('token');
-    // localStorage.removeItem(this.refreshTokenKey);
     this.userRole = null;
     this.username = null;
     this.router.navigate(['/login']);
@@ -84,7 +56,7 @@ export class AuthService {
   fetchUserRole(): Observable<any> {
     const headers = new HttpHeaders({
       Authorization: 'Bearer ' + localStorage.getItem('token'),
-    }); // standard way to include JWT tokens in HTTP headers for authentication.
+    });
     return this.http.get(this.profileUrl, { headers }).pipe(
       tap((profile: any) => {
         console.log(profile);
