@@ -59,7 +59,6 @@ export class AuthService {
     });
     return this.http.get(this.profileUrl, { headers }).pipe(
       tap((profile: any) => {
-        console.log(profile);
         this.userRole = profile.role;
         this.username = profile.name;
       })

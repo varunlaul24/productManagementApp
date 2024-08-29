@@ -14,8 +14,10 @@ export class HeaderComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.userRole = this.authService.getUserRole();
-    this.username = this.authService.getUsername();
+    this.authService.fetchUserRole().subscribe(() => {
+      this.userRole = this.authService.getUserRole();
+      this.username = this.authService.getUsername();
+    });
   }
 
   onLogout(): void {
