@@ -139,3 +139,5 @@ describe('AuthService', () => {
     });
   });
 });
+
+console.log('test');
